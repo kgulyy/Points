@@ -6,6 +6,7 @@ package ru.hh.school.gulyy.points;
 public class Point {
     private int x;
     private int y;
+    private double distanceToCenter;
 
     public Point(int x, int y) {
         this.x = x;
@@ -16,16 +17,16 @@ public class Point {
         return x;
     }
 
-    public void setX(int x) {
-        this.x = x;
-    }
-
     public int getY() {
         return y;
     }
 
-    public void setY(int y) {
-        this.y = y;
+    public double getDistanceToCenter() {
+        return distanceToCenter;
+    }
+
+    public void setDistanceToCenter(Point center) {
+        distanceToCenter = distanceTo(center);
     }
 
     @Override
@@ -52,5 +53,10 @@ public class Point {
             throw new IllegalArgumentException();
         }
         return Math.sqrt(Math.pow((dest.getX() - x), 2) + Math.pow((dest.getY() - y), 2));
+    }
+
+    @Override
+    public String toString() {
+        return "{" + x + "," + y + "}";
     }
 }

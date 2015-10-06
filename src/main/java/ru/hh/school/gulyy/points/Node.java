@@ -1,14 +1,15 @@
 package ru.hh.school.gulyy.points;
 
+import java.util.Iterator;
 import java.util.Set;
 
 /**
  * Created by Константин on 06.10.2015.
  */
 public class Node {
-    public static int MAX_SIZE_LEAF = 3;
+    public static int MAX_SIZE_LEAF = 1;
 
-    private Point center;
+    //private Point center;
     private double radius;
     private Set<Point> points;
     private Node left;
@@ -17,12 +18,8 @@ public class Node {
     public Node() {
     }
 
-    public Point getCenter() {
-        return center;
-    }
-
-    public void setCenter(Point center) {
-        this.center = center;
+    public Node(Set<Point> points) {
+        this.points = points;
     }
 
     public double getRadius() {
@@ -57,7 +54,22 @@ public class Node {
         this.right = right;
     }
 
+    public Point getFirstPoint() {
+        Iterator<Point> iterator = points.iterator();
+        return iterator.next();
+    }
+
     public boolean isLeaf() {
-        return points.size() <= MAX_SIZE_LEAF ? true : false;
+        return (points.size() == 1 || Points.areAllEquidistant(points)) && left == null && right == null ? true : false;
+    }
+
+    @Override
+    public String toString() {
+        return "Node{" +
+                ", radius=" + radius +
+                ", points=" + points +
+                ", left=" + left +
+                ", right=" + right +
+                '}';
     }
 }
