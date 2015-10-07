@@ -4,9 +4,6 @@ import org.junit.Assert;
 import org.junit.BeforeClass;
 import org.junit.Test;
 
-/**
- * Created by Константин on 06.10.2015.
- */
 public class PointTest {
     private static Point point;
 

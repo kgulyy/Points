@@ -4,12 +4,9 @@ import java.util.Iterator;
 import java.util.Set;
 
 /**
- * Created by Константин on 06.10.2015.
+ * POJO class is representing node of tree
  */
 public class Node {
-    public static int MAX_SIZE_LEAF = 1;
-
-    //private Point center;
     private double radius;
     private Set<Point> points;
     private Node left;
@@ -54,11 +51,19 @@ public class Node {
         this.right = right;
     }
 
+    /**
+     * Method get first point of set
+     * @return the first point of set
+     */
     public Point getFirstPoint() {
         Iterator<Point> iterator = points.iterator();
         return iterator.next();
     }
 
+    /**
+     * Method check if node is leaf
+     * @return true if node is leaf, false otherwise
+     */
     public boolean isLeaf() {
         return (points.size() == 1 || Points.areAllEquidistant(points)) && left == null && right == null ? true : false;
     }

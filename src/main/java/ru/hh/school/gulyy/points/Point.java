@@ -1,7 +1,7 @@
 package ru.hh.school.gulyy.points;
 
 /**
- * Created by Константин on 06.10.2015.
+ * POJO class is representing point
  */
 public class Point {
     private int x;
@@ -48,6 +48,11 @@ public class Point {
         return result;
     }
 
+    /**
+     * Method for calculating Euclidean distance to destination point
+     * @param dest is destination point
+     * @return distance from source to destination points
+     */
     public double distanceTo(Point dest) {
         if (dest == null) {
             throw new IllegalArgumentException();

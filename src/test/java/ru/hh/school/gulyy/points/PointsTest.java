@@ -8,9 +8,6 @@ import org.junit.Test;
 import java.util.HashSet;
 import java.util.Set;
 
-/**
- * Created by Константин on 06.10.2015.
- */
 public class PointsTest {
     private static Set<Point> points;
     private static Point point;

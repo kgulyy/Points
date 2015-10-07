@@ -3,22 +3,27 @@ package ru.hh.school.gulyy.points;
 import java.util.Set;
 
 /**
- * Created by Константин on 06.10.2015.
+ * Main class implemented higher logic of the application
  */
 public class Main {
 
     public static void main(String[] args) {
+        // hardcore specify name of json file with source data
         String fileName = System.getProperty("user.dir") + "/src/main/resources/source.json";
 
+        // parse json file
         Set<Point> points = JsonSourceFileParser.parse(fileName);
 
         for (Point center : points) {
             System.out.println("Point: " + center);
+            // build tree for searching
             Node start = BuilderVpTree.build(center, points);
-            Point result = SearcherVpTree.searchNearNeighbor(start);
-            System.out.println("Nearest point: " + result);
-            System.out.println("Radius = " + result.getDistanceToCenter());
-            Set<Point> pointSet = SearcherVpTree.searchNearNeighbor(start, result.getDistanceToCenter() * 2);
+            // search nearest point
+            Point nearestPoint = SearcherVpTree.searchNearNeighbor(start);
+            System.out.println("Nearest point: " + nearestPoint);
+            System.out.println("Radius = " + nearestPoint.getDistanceToCenter());
+            // search nearest neighbors in double radius
+            Set<Point> pointSet = SearcherVpTree.searchNearNeighbor(start, nearestPoint.getDistanceToCenter() * 2);
             System.out.println("Nearest neighbors: " + pointSet);
             System.out.println("----------------------------------");
         }

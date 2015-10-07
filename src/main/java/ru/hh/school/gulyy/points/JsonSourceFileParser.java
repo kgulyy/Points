@@ -12,9 +12,15 @@ import java.util.HashSet;
 import java.util.Set;
 
 /**
- * Created by Константин on 07.10.2015.
+ * Class for parsing json file with source data
  */
 public class JsonSourceFileParser {
+
+    /**
+     * Static method for parse jason file with data of points
+     * @param fileName name of file with source data
+     * @return set of points
+     */
     public static Set<Point> parse(String fileName) {
         Set<Point> result = new HashSet<Point>();
         JSONParser parser = new JSONParser();
