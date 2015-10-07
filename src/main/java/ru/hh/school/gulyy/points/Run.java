@@ -5,7 +5,7 @@ import java.util.Set;
 /**
  * Main class implemented higher logic of the application
  */
-public class Main {
+public class Run {
 
     public static void main(String[] args) {
         // hardcore specify name of json file with source data
