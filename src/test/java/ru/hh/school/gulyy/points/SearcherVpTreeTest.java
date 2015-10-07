@@ -43,9 +43,11 @@ public class SearcherVpTreeTest {
         Point nearestPoint = SearcherVpTree.searchNearNeighbor(start);
 
         Assert.assertEquals(new Point(-2, 0), nearestPoint);
-        Assert.assertEquals(4.0, nearestPoint.getDistanceToCenter() * 2, 0.0000001);
+        Assert.assertEquals(2.0, nearestPoint.getDistanceToCenter(), 0.0000001);
 
         Set<Point> actualSet = SearcherVpTree.searchNearNeighbor(start, nearestPoint.getDistanceToCenter() * 2);
+        Assert.assertEquals(5, actualSet.size());
+
         Set<Point> expectedSet = new HashSet<Point>();
         expectedSet.add(new Point(3,2));
         expectedSet.add(new Point(2,3));
